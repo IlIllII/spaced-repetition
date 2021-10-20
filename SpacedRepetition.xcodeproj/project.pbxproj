@@ -10,7 +10,7 @@
 		1203819C2719F2580053AC93 /* SpacedRepetitionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203819B2719F2580053AC93 /* SpacedRepetitionApp.swift */; };
 		1203819E2719F2580053AC93 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203819D2719F2580053AC93 /* MainView.swift */; };
 		120381A02719F25C0053AC93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1203819F2719F25C0053AC93 /* Assets.xcassets */; };
-		120381AA2719F3AF0053AC93 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120381A92719F3AF0053AC93 /* model.swift */; };
+		120381AA2719F3AF0053AC93 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120381A92719F3AF0053AC93 /* Model.swift */; };
 		120381AC2719FB5E0053AC93 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120381AB2719FB5E0053AC93 /* ViewModel.swift */; };
 		120381B0271A10020053AC93 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120381AF271A10020053AC93 /* CardView.swift */; };
 		120381B2271A225B0053AC93 /* CardEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120381B1271A225B0053AC93 /* CardEditor.swift */; };
@@ -21,7 +21,7 @@
 		1203819B2719F2580053AC93 /* SpacedRepetitionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacedRepetitionApp.swift; sourceTree = "<group>"; };
 		1203819D2719F2580053AC93 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1203819F2719F25C0053AC93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		120381A92719F3AF0053AC93 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		120381A92719F3AF0053AC93 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		120381AB2719FB5E0053AC93 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		120381AF271A10020053AC93 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		120381B1271A225B0053AC93 /* CardEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditor.swift; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 				1203819D2719F2580053AC93 /* MainView.swift */,
 				120381B1271A225B0053AC93 /* CardEditor.swift */,
 				120381AF271A10020053AC93 /* CardView.swift */,
-				120381A92719F3AF0053AC93 /* model.swift */,
+				120381A92719F3AF0053AC93 /* Model.swift */,
 				120381AB2719FB5E0053AC93 /* ViewModel.swift */,
 				1203819F2719F25C0053AC93 /* Assets.xcassets */,
 			);
@@ -139,7 +139,7 @@
 			files = (
 				120381B2271A225B0053AC93 /* CardEditor.swift in Sources */,
 				1203819E2719F2580053AC93 /* MainView.swift in Sources */,
-				120381AA2719F3AF0053AC93 /* model.swift in Sources */,
+				120381AA2719F3AF0053AC93 /* Model.swift in Sources */,
 				120381AC2719FB5E0053AC93 /* ViewModel.swift in Sources */,
 				120381B0271A10020053AC93 /* CardView.swift in Sources */,
 				1203819C2719F2580053AC93 /* SpacedRepetitionApp.swift in Sources */,
