@@ -9,8 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var viewModel: ViewModel
-    
-    
     @State var editing = false
     @State var newCard = false
     @State var questionField = ""
@@ -19,7 +17,6 @@ struct MainView: View {
     
     let width = UIScreen.main.bounds.size.width
 
-    
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
@@ -32,7 +29,6 @@ struct MainView: View {
                             Text("You're all caught up.")
                         }
                     }
-                    
                 }
                     .contextMenu {
                         contextMenu
@@ -83,18 +79,14 @@ struct MainView: View {
         }
     }
     
+    /// Whether or not there are any cards with review dates before today.
     func cardsRemaining() -> Bool {
         return viewModel.currentCard.reviewDate < Date()
     }
     
-    func newestVersion() -> Bool {
-        if #available(iOS 15.0, *) {
-            return true
-        } else {
-            return false
-        }
-    }
-    
+    /// Animating xCoord for card swiping.
+    ///
+    /// - Parameter f: any function returning void. In this case it is going to be getting the card either right or wrong, which changes the view to a new card.
     func swipeCard(f: () -> Void) {
         withAnimation(.easeIn(duration: 0.3)) {
             xCoord = width * 2
@@ -104,7 +96,6 @@ struct MainView: View {
             xCoord = width / 2
         }
     }
-    
     
     @ViewBuilder
     var contextMenu: some View {

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CardView: View {
     var card: Model.Card
-    
     @State var answerHidden: Bool = true
     @State private var justLoaded = false
     @State var rotation = 0.0
@@ -27,10 +26,12 @@ struct CardView: View {
         .onTapGesture {
             flipCard()
         }
+        // Need to rotate both variables to flip content rightside up after the rotation.
         .rotation3DEffect(.degrees(contentRotation), axis: (x: 0, y: 1, z: 0))
         .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
     }
     
+    // Question side of a card
     var questionCard: some View {
         VStack {
             Text("Question")
@@ -40,12 +41,12 @@ struct CardView: View {
                     .multilineTextAlignment(.leading)
             }
             .modifier(InnerCardTextModifier())
-
         }
         .id(card.id)
         .modifier(OuterCardTextModifier(color: Color.blue))
     }
     
+    // Answer side of a card
     var answerCard: some View {
         VStack {
             Text("Answer")
@@ -61,7 +62,7 @@ struct CardView: View {
         .modifier(OuterCardTextModifier(color: Color.green))
     }
     
-    
+    /// Rotate rotation and content rotation 180 degrees. Also toggles hidden.
     func flipCard() {
         withAnimation(.easeInOut(duration: CONSTANTS.animationTime)) {
             rotation += 180
@@ -71,7 +72,6 @@ struct CardView: View {
             answerHidden.toggle()
         }
     }
-    
     
     struct InnerCardTextModifier: ViewModifier {
         func body(content: Content) -> some View {
@@ -86,7 +86,6 @@ struct CardView: View {
     
     struct OuterCardTextModifier: ViewModifier {
         let color: Color
-        
         func body(content: Content) -> some View {
             return content
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -102,13 +101,6 @@ struct CardView: View {
         static let animationTime: Double = 0.25
     }
 }
-
-
-
-
-
-
-
 
 //struct CardView_Previews: PreviewProvider {
 //    static var previews: some View {

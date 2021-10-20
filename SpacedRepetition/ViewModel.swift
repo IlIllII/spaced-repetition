@@ -7,15 +7,14 @@
 
 import SwiftUI
 
-
 class ViewModel: ObservableObject {
     @Published private(set) var model: Model {
         didSet {
-            print(model.cards)
             autosave()
         }
     }
     
+    /// Load in cards or create an empty deck if no save exists.
     init() {
         // If an autosave exists, load it
         // If not, create empty model
@@ -37,6 +36,7 @@ class ViewModel: ObservableObject {
     
     
     // MARK: - autosave
+    
     private struct Autosave {
         static let filename = "Autosaved"
         static var url: URL? {
@@ -52,17 +52,19 @@ class ViewModel: ObservableObject {
     }
     
     private func save(to url: URL) {
-        let thisFunction = "\(String(describing: self)).\(#function)"
         do {
             let data: Data = try model.json()
             try data.write(to: url)
         } catch let encodingError where encodingError is EncodingError {
-            print("\(thisFunction) couldn't encode data as JSON because \(encodingError.localizedDescription)")
+            print("Couldn't encode data as JSON because \(encodingError.localizedDescription)")
         } catch let error {
-            print("\(thisFunction) error = \(error)")
+            print("Error = \(error)")
         }
     }
     
+    /// Sorts the card deck in place.
+    ///
+    /// Insertion sort is used because at most one card will be out of order, making it O(n)
     private func insertionSortCards() {
         for index in 1..<model.cards.count {
             let card = model.cards[index]
@@ -97,6 +99,7 @@ class ViewModel: ObservableObject {
         }
     }
     
+    /// Move card ahead one bucket and resort deck.
     func gotCardRight(_ card: Model.Card) {
         if let index = model.cards.firstIndex(where: { $0.id == card.id}) {
             model.cards[index].learningBucket += 1
@@ -106,6 +109,7 @@ class ViewModel: ObservableObject {
         insertionSortCards()
     }
     
+    /// Move card back one bucket and resort deck.
     func gotCardWrong(_ card: Model.Card) {
         if let index = model.cards.firstIndex(where: { $0.id == card.id}) {
             model.cards[index].learningBucket -= 1
@@ -116,6 +120,6 @@ class ViewModel: ObservableObject {
     }
     
     struct CONSTANTS {
-        static let oneDay: Double = 86400 // in seconds
+        static let oneDay: Double = 86400 // seconds in a day
     }
 }

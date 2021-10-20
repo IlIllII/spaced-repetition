@@ -11,10 +11,8 @@ struct CardEditor: View {
     var viewModel: ViewModel
     var newCard: Bool
     @Environment(\.presentationMode) var presentationMode
-    
     @Binding var questionField: String
     @Binding var answerField: String
-
     
     var body: some View {
         VStack {
@@ -36,7 +34,6 @@ struct CardEditor: View {
         }
     }
     
-
     var questionSection: some View {
         Section(header: Text("Question")) {
             TextField("", text: $questionField)
@@ -46,7 +43,6 @@ struct CardEditor: View {
     var answerSection: some View {
         Section(header: Text("Answer")) {
             TextEditor(text: $answerField)
-//            TextField("", text: $answerField)
         }
     }
 }

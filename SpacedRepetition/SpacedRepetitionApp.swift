@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct SpacedRepetitionApp: App {
     @StateObject var viewModel = ViewModel()
-
     
     var body: some Scene {
         WindowGroup {
